@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+         maven { url "https://s3-us-west-2.amazonaws.com/repo.archipelago.build/releases/" }
+    }
+    dependencies {
+        classpath 'build.archipelago:ArchipelagoPlugin:0.1-ALPHA'
+    }
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+apply plugin: 'java-library'
+apply plugin: 'archipelago'
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
